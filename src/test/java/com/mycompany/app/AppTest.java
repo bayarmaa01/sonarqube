@@ -1,19 +1,29 @@
 package com.mycompany.app;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * Unit test for simple App.
- */
 public class AppTest {
 
-    /**
-     * Rigorous Test :-)
-     */
     @Test
-    public void shouldAnswerWithTrue() {
-        assertTrue(true);
+    void testWelcomeMessage() {
+        App app = new App();
+        assertEquals(
+            "Welcome to CloudWithVarJosh Demo!",
+            app.getWelcomeMessage()
+        );
+    }
+
+    @Test
+    void testAdminUser() {
+        App app = new App();
+        assertTrue(app.isAdminUser("admin"));
+    }
+
+    @Test
+    void testNonAdminUser() {
+        App app = new App();
+        assertFalse(app.isAdminUser("user"));
     }
 }
